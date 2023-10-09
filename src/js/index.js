@@ -14,6 +14,6 @@ function searchHandle(e) {
   e.preventDefault();
   const request = e.target.elements.searchQuery.value;
   getPhotos(request).then(data => {
-    console.log(data.hits);
+    const dataArray = data.hits;
   });
 }
