@@ -13,7 +13,7 @@ async function getPhotos(request) {
     });
 
     const photos = await response.data;
-    console.log(photos);
+    return photos;
   } catch (error) {
     Notiflix.Notify.failure(
       'Sorry, there are no images matching your search query. Please try again.'
