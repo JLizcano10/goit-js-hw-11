@@ -15,14 +15,21 @@ function searchHandle(e) {
   e.preventDefault();
   refs.gallery.innerHTML = '';
   const request = e.target.elements.searchQuery.value;
-  getPhotos(request).then(data => {
-    const dataArray = data.hits;
-    if (dataArray.length !== 0) {
-      createMarkup(dataArray, refs.gallery);
-    } else {
-      Notiflix.Notify.failure(
-        'Sorry, there are no images matching your search query. Please try again.'
-      );
-    }
-  });
+  if (request !== '') {
+    getPhotos(request).then(data => {
+      Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+      const dataArray = data.hits;
+      if (dataArray.length !== 0) {
+        createMarkup(dataArray, refs.gallery);
+      } else {
+        Notiflix.Notify.failure(
+          'Sorry, there are no images matching your search query. Please try again.'
+        );
+      }
+    });
+  } else {
+    Notiflix.Notify.failure(
+      'Sorry, there are no images matching your search query. Please try again.'
+    );
+  }
 }
