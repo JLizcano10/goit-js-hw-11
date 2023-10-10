@@ -11,13 +11,13 @@ const refs = {
 };
 let page;
 
-function searchHandle(e) {
+async function searchHandle(e) {
   e.preventDefault();
   page = 1;
   refs.gallery.innerHTML = '';
   const request = e.target.elements.searchQuery.value;
   if (request !== '') {
-    getPhotos(request, page).then(data => {
+    await getPhotos(request, page).then(data => {
       Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
       const dataArray = data.hits;
       if (dataArray.length !== 0) {
@@ -34,8 +34,13 @@ function searchHandle(e) {
     );
   }
 }
-function loadMoreHandle() {
-  console.log('alo?');
+async function loadMoreHandle(e) {
+  e.preventDefault();
+  page += 1;
+
+  await getPhotos(request, page).then(data => {
+    console.log(data.totalHits);
+  });
 }
 refs.searchForm.addEventListener('submit', searchHandle);
 refs.loadMore.addEventListener('submit', loadMoreHandle);
