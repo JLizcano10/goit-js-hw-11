@@ -13,9 +13,11 @@ refs.searchForm.addEventListener('submit', searchHandle);
 
 function searchHandle(e) {
   e.preventDefault();
+  refs.gallery.innerHTML = '';
   const request = e.target.elements.searchQuery.value;
   getPhotos(request).then(data => {
     const dataArray = data.hits;
+    console.log(dataArray);
     createMarkup(dataArray, refs.gallery);
   });
 }

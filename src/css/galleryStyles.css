@@ -1,0 +1,12 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.563rem;
+  padding: 0.625rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
