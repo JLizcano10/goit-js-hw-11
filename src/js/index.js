@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import simpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { getPhotos } from './pixabay-api';
+import { createMarkup } from './createMarkup';
 
 const refs = {
   searchForm: document.querySelector('#search-form'),
@@ -15,5 +16,6 @@ function searchHandle(e) {
   const request = e.target.elements.searchQuery.value;
   getPhotos(request).then(data => {
     const dataArray = data.hits;
+    createMarkup(dataArray, refs.gallery);
   });
 }
