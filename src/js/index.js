@@ -17,7 +17,12 @@ function searchHandle(e) {
   const request = e.target.elements.searchQuery.value;
   getPhotos(request).then(data => {
     const dataArray = data.hits;
-    console.log(dataArray);
-    createMarkup(dataArray, refs.gallery);
+    if (dataArray.length !== 0) {
+      createMarkup(dataArray, refs.gallery);
+    } else {
+      Notiflix.Notify.failure(
+        'Sorry, there are no images matching your search query. Please try again.'
+      );
+    }
   });
 }
