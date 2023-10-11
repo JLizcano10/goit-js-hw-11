@@ -8,7 +8,7 @@
   height: 8vh;
   background-color: rgb(57, 0, 181);
   box-shadow: rgba(0, 0, 0, 0.19) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .search-form input {
