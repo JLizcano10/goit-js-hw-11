@@ -25,7 +25,7 @@
 }
 
 .search-form input:focus {
-  outline: 2px solid rgb(35, 77, 216);
+  outline: 3px solid rgb(35, 77, 216);
 }
 
 .search-form button {
@@ -35,7 +35,7 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
   border: none;
   border-left: 1px solid gainsboro;
 }
