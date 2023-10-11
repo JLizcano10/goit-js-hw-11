@@ -36,9 +36,9 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 25px;
   width: 100%;
-  padding: 15px;
+  padding: 20px;
 }
 .photo-card {
   width: 360px;
