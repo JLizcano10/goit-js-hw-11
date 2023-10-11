@@ -13,6 +13,7 @@ const refs = {
 let page;
 let request;
 let dataArray;
+let totalData;
 let lightbox = new SimpleLightbox('.gallery a');
 Notiflix.Notify.init({
   width: '500px',
@@ -58,7 +59,8 @@ async function loadMoreHandle(e) {
 
   await getPhotos(request, page).then(data => {
     dataArray = data.hits;
-    const totalPages = parseInt(data.totalHits / 40);
+    totalData = data.totalHits;
+    const totalPages = parseInt(totalData / 40);
     console.log(totalPages);
     if (page <= totalPages) {
       createMarkup(dataArray, refs.gallery);
