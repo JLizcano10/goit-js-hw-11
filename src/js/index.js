@@ -13,6 +13,13 @@ let page;
 let request;
 let dataArray;
 let lightbox = new SimpleLightbox('.gallery a');
+Notiflix.Notify.init({
+  width: '500px',
+  fontSize: '15px',
+  info: {
+    background: '#f8a63b',
+  },
+});
 
 refs.loadMore.style.display = 'none';
 
@@ -54,7 +61,7 @@ async function loadMoreHandle(e) {
       lightbox.refresh();
       scrollToNextGroup();
     } else {
-      Notiflix.Notify.warning(
+      Notiflix.Notify.info(
         "We're sorry, but you've reached the end of search results."
       );
     }
