@@ -32,9 +32,10 @@ async function searchHandle(e) {
   request = e.target.elements.searchQuery.value;
   if (request !== '') {
     await getPhotos(request, page).then(data => {
-      Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
       dataArray = data.hits;
+      totalData = data.totalHits;
       if (dataArray.length !== 0) {
+        Notiflix.Notify.success(`Hooray! We found ${totalData} images.`);
         createMarkup(dataArray, refs.gallery);
         lightbox.refresh();
         refs.loadMore.style.display = 'flex';
