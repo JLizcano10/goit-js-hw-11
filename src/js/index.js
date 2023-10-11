@@ -9,6 +9,7 @@ const refs = {
   gallery: document.querySelector('.gallery'),
   loadMore: document.querySelector('.load-more'),
 };
+
 let page;
 let request;
 let dataArray;
@@ -27,6 +28,7 @@ async function searchHandle(e) {
   e.preventDefault();
   page = 1;
   refs.gallery.innerHTML = '';
+  scrollToTop();
   request = e.target.elements.searchQuery.value;
   if (request !== '') {
     await getPhotos(request, page).then(data => {
@@ -48,6 +50,7 @@ async function searchHandle(e) {
     );
   }
 }
+
 async function loadMoreHandle(e) {
   e.preventDefault();
   page += 1;
@@ -73,6 +76,13 @@ function scrollToNextGroup() {
     refs.gallery.firstElementChild.getBoundingClientRect();
   window.scrollBy({
     top: cardHeight * 2,
+    behavior: 'smooth',
+  });
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
     behavior: 'smooth',
   });
 }
