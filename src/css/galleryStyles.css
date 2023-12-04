@@ -59,13 +59,13 @@
   height: 360px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px 5px;
-  transform: scale(0.99);
+  transform: scale(1);
   transition: transform 0.5s cubic-bezier(0, 1.1, 0.85, 0.85);
 }
 
 .photo-card:hover,
 .photo-card:focus {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .photo-card img {
